@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-body bg-primary text-primary antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-white;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card border border-border backdrop-blur-md rounded-cards transition-all shadow-card-glow;
+  }
+  .glass-card:hover {
+    @apply border-border-mid bg-card-hover transform -translate-y-1;
+  }
+  
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-dark text-black font-bold py-3 px-6 rounded-buttons transition-all shadow-button-glow;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent hover:bg-accent-glow text-accent border border-border hover:border-accent font-semibold py-3 px-6 rounded-buttons transition-all;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-teal;
+  }
+  
+  /* Hiding scrollbar for horizontal scroll views */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .cinematic-container {
+    /* Optional: custom scrollbar for the cinematic part if needed */
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
