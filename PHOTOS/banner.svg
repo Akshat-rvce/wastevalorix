@@ -1,30 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 350" width="100%" height="100%">
   <defs>
-    <!-- Dark Tech Gradients -->
+    <!-- Dark Tech Gradients matching the site's palette -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#03080c"/>
-      <stop offset="50%" stop-color="#050e14"/>
-      <stop offset="100%" stop-color="#020508"/>
+      <stop offset="0%" stop-color="#030A05"/>
+      <stop offset="60%" stop-color="#0A1A0D"/>
+      <stop offset="100%" stop-color="#030A05"/>
     </linearGradient>
-    <linearGradient id="primaryGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00ff88" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#00e6ff" stop-opacity="1"/>
+    <linearGradient id="zapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E676"/>
+      <stop offset="100%" stop-color="#00BCD4"/>
     </linearGradient>
-    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00BCD4" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#00E676" stop-opacity="0.8"/>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E676"/>
+      <stop offset="100%" stop-color="#00BCD4"/>
     </linearGradient>
     
-    <!-- Neon Glow Filter -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
+    <!-- Neon Glow Filters -->
+    <filter id="zapGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="glow-soft" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="15" result="blur" />
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25" result="blur" />
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -33,173 +33,116 @@
   </defs>
 
   <style>
-    @keyframes dash {
-      to {
-        stroke-dashoffset: -1000;
-      }
+    .font-space {
+      font-family: 'Space Grotesk', 'Outfit', 'Inter', 'Segoe UI', sans-serif;
     }
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 0.3;
-        transform: scale(0.98);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.02);
-      }
+    .font-dm {
+      font-family: 'DM Sans', 'Inter', sans-serif;
     }
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-10px) rotate(5deg);
-      }
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: -1.5px;
     }
-    @keyframes float-reverse {
-      0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: translateY(10px) rotate(-5deg);
-      }
-    }
-    .flow-line {
-      stroke: url(#primaryGlow);
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      fill: none;
-      stroke-dasharray: 20, 80;
-      animation: dash 25s linear infinite;
-    }
-    .flow-line-fast {
-      stroke: url(#primaryGlow);
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      fill: none;
-      stroke-dasharray: 10, 50;
-      animation: dash 12s linear infinite;
-      opacity: 0.6;
-    }
-    .glowing-title {
-      font-family: 'Outfit', 'Inter', 'Segoe UI', sans-serif;
-      font-weight: 900;
-      fill: #ffffff;
-      filter: url(#glow);
-      letter-spacing: 5px;
-    }
-    .glowing-subtitle {
-      font-family: 'Inter', 'Segoe UI', sans-serif;
+    .brand-subtitle {
       font-weight: 500;
-      fill: #00ff88;
-      letter-spacing: 3px;
-      opacity: 0.9;
-    }
-    .accent-circle {
-      fill: none;
-      stroke: #00ff88;
-      stroke-width: 1;
-      opacity: 0.15;
+      letter-spacing: 3.5px;
+      fill: #7A9A80;
     }
     .grid-lines {
-      stroke: #122230;
-      stroke-width: 0.5;
-      opacity: 0.7;
-    }
-    .tech-card {
-      fill: #06111a;
-      stroke: #0d273a;
-      stroke-width: 1;
-      rx: 16px;
-      opacity: 0.85;
-    }
-    .tech-card-glow {
-      stroke: url(#primaryGlow);
-      stroke-width: 1.5;
-      rx: 16px;
-      filter: url(#glow);
+      stroke: #0A2210;
+      stroke-width: 0.8;
       opacity: 0.4;
-      animation: pulse 4s ease-in-out infinite;
     }
   </style>
 
   <!-- Background -->
   <rect width="100%" height="100%" fill="url(#bgGrad)"/>
 
-  <!-- Tech Grid Background -->
+  <!-- Technical Grid Pattern -->
   <g class="grid-lines">
-    <!-- Horizontal Grid Lines -->
+    <!-- Horizontal -->
     <line x1="0" y1="50" x2="1200" y2="50"/>
     <line x1="0" y1="100" x2="1200" y2="100"/>
     <line x1="0" y1="150" x2="1200" y2="150"/>
     <line x1="0" y1="200" x2="1200" y2="200"/>
     <line x1="0" y1="250" x2="1200" y2="250"/>
     <line x1="0" y1="300" x2="1200" y2="300"/>
-    <line x1="0" y1="350" x2="1200" y2="350"/>
-    <!-- Vertical Grid Lines -->
-    <line x1="100" y1="0" x2="100" y2="400"/>
-    <line x1="200" y1="0" x2="200" y2="400"/>
-    <line x1="300" y1="0" x2="300" y2="400"/>
-    <line x1="400" y1="0" x2="400" y2="400"/>
-    <line x1="500" y1="0" x2="500" y2="400"/>
-    <line x1="600" y1="0" x2="600" y2="400"/>
-    <line x1="700" y1="0" x2="700" y2="400"/>
-    <line x1="800" y1="0" x2="800" y2="400"/>
-    <line x1="900" y1="0" x2="900" y2="400"/>
-    <line x1="1000" y1="0" x2="1000" y2="400"/>
-    <line x1="1100" y1="0" x2="1100" y2="400"/>
+    <!-- Vertical -->
+    <line x1="100" y1="0" x2="100" y2="350"/>
+    <line x1="200" y1="0" x2="200" y2="350"/>
+    <line x1="300" y1="0" x2="300" y2="350"/>
+    <line x1="400" y1="0" x2="400" y2="350"/>
+    <line x1="500" y1="0" x2="500" y2="350"/>
+    <line x1="600" y1="0" x2="600" y2="350"/>
+    <line x1="700" y1="0" x2="700" y2="350"/>
+    <line x1="800" y1="0" x2="800" y2="350"/>
+    <line x1="900" y1="0" x2="900" y2="350"/>
+    <line x1="1000" y1="0" x2="1000" y2="350"/>
+    <line x1="1100" y1="0" x2="1100" y2="350"/>
   </g>
 
-  <!-- Glowing background blobs -->
-  <circle cx="200" cy="200" r="150" fill="#00ff88" opacity="0.03" filter="url(#glow-soft)" />
-  <circle cx="1000" cy="200" r="180" fill="#00e6ff" opacity="0.03" filter="url(#glow-soft)" />
+  <!-- Atmospheric Glow blobs -->
+  <circle cx="150" cy="175" r="160" fill="#00E676" opacity="0.04" filter="url(#softGlow)" />
+  <circle cx="950" cy="175" r="200" fill="#00BCD4" opacity="0.03" filter="url(#softGlow)" />
 
-  <!-- Animated flow lines -->
-  <path d="M-100 200 C 150 50, 450 350, 750 200 C 950 100, 1150 250, 1300 200" class="flow-line" />
-  <path d="M-100 250 C 150 100, 450 400, 750 250 C 950 150, 1150 300, 1300 250" class="flow-line-fast" />
-  <path d="M-100 150 C 150 0, 450 300, 750 150 C 950 50, 1150 200, 1300 150" class="flow-line-fast" style="animation-delay: -6s;" />
-
-  <!-- Abstract Tech Circles -->
-  <circle cx="600" cy="200" r="160" class="accent-circle" />
-  <circle cx="600" cy="200" r="120" class="accent-circle" style="stroke-dasharray: 10, 20;" />
-  <circle cx="600" cy="200" r="80" class="accent-circle" />
-
-  <!-- Decorative Tech elements -->
-  <g transform="translate(1000, 80)" style="animation: float 6s ease-in-out infinite;">
-    <!-- Recycle Icon Tech style -->
-    <path d="M0,0 L20,-10 L40,0 L30,20 L10,20 Z" fill="none" stroke="#00ff88" stroke-width="2" filter="url(#glow)"/>
-    <path d="M20,10 L30,-10" stroke="#00ff88" stroke-width="1.5" />
-    <circle cx="20" cy="5" r="3" fill="#00e6ff" />
-  </g>
-  <g transform="translate(150, 280)" style="animation: float-reverse 7s ease-in-out infinite;">
-    <!-- Atom or Energy Particle -->
-    <ellipse cx="25" cy="25" rx="30" ry="10" fill="none" stroke="#00e6ff" stroke-width="1.5" transform="rotate(30, 25, 25)" />
-    <ellipse cx="25" cy="25" rx="30" ry="10" fill="none" stroke="#00ff88" stroke-width="1.5" transform="rotate(-30, 25, 25)" />
-    <circle cx="25" cy="25" r="5" fill="#ffffff" filter="url(#glow)" />
-  </g>
-
-  <!-- Glowing UI Card in center -->
-  <g transform="translate(350, 100)" style="animation: pulse 5s ease-in-out infinite; transform-origin: 250px 100px;">
-    <rect x="0" y="0" width="500" height="200" class="tech-card" />
-    <rect x="-1" y="-1" width="502" height="202" class="tech-card-glow" />
+  <!-- Left Side: Main Logo Branding -->
+  <g transform="translate(80, 0)">
     
-    <!-- Title Text -->
-    <text x="250" y="85" text-anchor="middle" class="glowing-title" font-size="44">WASTEVALORIX</text>
+    <!-- Zap Logo Icon with rounded outer box -->
+    <g transform="translate(0, 110)">
+      <!-- Outer rounded glass-like box -->
+      <rect x="0" y="0" width="130" height="130" rx="24" fill="#0A1A0D" stroke="rgba(0,230,118,0.2)" stroke-width="2" filter="url(#zapGlow)" />
+      
+      <!-- Scale/Center Zap symbol -->
+      <g transform="translate(25, 20) scale(4.5)">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="url(#zapGrad)" filter="url(#zapGlow)"/>
+      </g>
+    </g>
+
+    <!-- Brand Name Text -->
+    <text x="155" y="190" class="font-space brand-title" font-size="70" fill="#ffffff">
+      Waste<tspan fill="url(#textGrad)">Valorix</tspan>
+    </text>
     
-    <!-- Subtitle Text -->
-    <text x="250" y="130" text-anchor="middle" class="glowing-subtitle" font-size="16">THE AI WASTE-TO-ENERGY HYBRID ENGINE</text>
+    <!-- Subtitle description below the brand name -->
+    <text x="160" y="235" class="font-dm brand-subtitle" font-size="14.5">
+      THE AI WASTE-TO-ENERGY HYBRID ENGINE
+    </text>
     
-    <!-- Micro details -->
-    <line x1="80" y1="155" x2="420" y2="155" stroke="#123249" stroke-width="1" />
-    <circle cx="250" cy="155" r="4" fill="#00ff88" filter="url(#glow)" />
-    <circle cx="210" cy="155" r="2" fill="#00e6ff" />
-    <circle cx="290" cy="155" r="2" fill="#00e6ff" />
-    <text x="250" y="180" text-anchor="middle" fill="#587c96" font-family="'Inter', sans-serif" font-size="11" letter-spacing="1">SYSTEMS ACTIVE · NEURAL ESTIMATOR v2.5</text>
+    <!-- RVCE Department tag -->
+    <rect x="160" y="75" width="140" height="24" rx="12" fill="#0A1A0D" stroke="rgba(0,230,118,0.15)" stroke-width="1" />
+    <text x="230" y="91" text-anchor="middle" class="font-dm" font-size="11" fill="#7A9A80" font-weight="600" letter-spacing="1">
+      RVCE PROJECT
+    </text>
+
   </g>
 
-  <!-- Tech border accents -->
-  <path d="M 30,30 L 80,30 M 30,30 L 30,80" stroke="#00ff88" stroke-width="3" fill="none" />
-  <path d="M 1170,30 L 1120,30 M 1170,30 L 1170,80" stroke="#00ff88" stroke-width="3" fill="none" />
-  <path d="M 30,370 L 80,370 M 30,370 L 30,320" stroke="#00ff88" stroke-width="3" fill="none" />
-  <path d="M 1170,370 L 1120,370 M 1170,370 L 1170,320" stroke="#00ff88" stroke-width="3" fill="none" />
+  <!-- Right Side: Interactive Home Page Screenshot Mockup -->
+  <g>
+    <!-- Clip path to round the screenshot corners -->
+    <clipPath id="mockupClip">
+      <rect x="650" y="45" width="470" height="260" rx="16" />
+    </clipPath>
+    
+    <!-- Outer glow for the screenshot window -->
+    <rect x="648" y="43" width="474" height="264" rx="18" fill="none" stroke="url(#zapGrad)" stroke-width="3" filter="url(#zapGlow)" opacity="0.6" />
+    
+    <!-- Embedded image -->
+    <image href="HOME%20PAGE.png" x="650" y="45" width="470" height="260" preserveAspectRatio="xMidYMid slice" clip-path="url(#mockupClip)" />
+    
+    <!-- Subtle tech overlay border details -->
+    <rect x="650" y="45" width="470" height="260" rx="16" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" clip-path="url(#mockupClip)" />
+  </g>
+
+  <!-- Bottom border decorative line -->
+  <line x1="100" y1="310" x2="1100" y2="310" stroke="rgba(0,230,118,0.15)" stroke-width="1" />
+  <circle cx="100" cy="310" r="3" fill="#00E676" />
+  <circle cx="1100" cy="310" r="3" fill="#00BCD4" />
+
+  <!-- Tech corner accents -->
+  <path d="M 25,25 L 60,25 M 25,25 L 25,60" stroke="#00E676" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 1175,25 L 1140,25 M 1175,25 L 1175,60" stroke="#00E676" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 25,325 L 60,325 M 25,325 L 25,290" stroke="#00E676" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 1175,325 L 1140,325 M 1175,325 L 1175,290" stroke="#00E676" stroke-width="2" fill="none" opacity="0.6"/>
+
 </svg>

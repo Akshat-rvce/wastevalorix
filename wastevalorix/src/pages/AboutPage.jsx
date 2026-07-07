@@ -17,10 +17,10 @@ const AboutPage = () => {
         </div>
         
         <h1 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">R.V. College of Engineering, Bengaluru</h1>
-        <h2 className="text-lg md:text-xl text-accent font-medium mb-4">Department of Electrical & Electronics Engineering</h2>
+        <h2 className="text-lg md:text-xl text-accent font-medium mb-4">Valorization of Waste Matter into Viable Energy</h2>
         
         <div className="inline-block bg-card border border-border px-4 py-2 rounded-full text-sm font-semibold text-text-soft">
-          Design Thinking Lab (DTL) — 2 Credit Project 2025
+          Academic Research &amp; Development Project 2025
         </div>
         <p className="mt-4 text-text-primary px-4">Subject Theme: Valorization of waste matter into viable energy.</p>
       </motion.div>
@@ -67,10 +67,10 @@ const AboutPage = () => {
 
       {/* Team */}
       <motion.div 
-         initial={{ opacity: 0, y: 20 }}
-         whileInView={{ opacity: 1, y: 0 }}
-         viewport={{ once: true }}
-         className="mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-16"
       >
          <h3 className="text-2xl font-heading font-bold text-white text-center flex items-center justify-center gap-2 mb-8">
            <Users className="text-accent" /> Team Members
@@ -83,7 +83,7 @@ const AboutPage = () => {
                      {idx + 1}
                   </div>
                   <div className="font-semibold text-white mb-1">Student {idx + 1}</div>
-                  <div className="text-xs text-text-muted">1RV21EE0{idx}0</div>
+                  <div className="text-xs text-text-muted">1RV21CS0{idx}0</div>
                </div>
             ))}
          </div>
@@ -93,7 +93,7 @@ const AboutPage = () => {
       <div className="text-center border-t border-border pt-12 pb-8">
         <ShieldCheck size={32} className="mx-auto text-text-muted mb-4" />
         <p className="text-sm text-text-soft max-w-2xl mx-auto">
-          We express our sincere gratitude to our DTL faculty guides and the EEE department at RVCE for their support and guidance during the ideation and development of WasteValorix framework. Data parameters derived from international EPA and IPCC estimates on calorific biomass.
+          We express our sincere gratitude to our faculty guides and the department at RVCE for their support and guidance during the ideation and development of WasteValorix framework. Data parameters derived from international EPA and IPCC estimates on calorific biomass.
         </p>
       </div>
 

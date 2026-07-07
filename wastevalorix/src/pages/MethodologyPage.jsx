@@ -151,7 +151,7 @@ export default function MethodologyPage() {
         <ThreeGlobe />
         <div className="relative z-10 flex flex-col items-center text-center px-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium mb-6 backdrop-blur-md">
-            <Zap size={14} /> RVCE EEE DTL 2025
+            <Zap size={14} /> RVCE WasteValorix Project
           </div>
           <h1 className="text-4xl md:text-6xl font-heading font-bold text-white tracking-tight mb-4 max-w-4xl">
             WasteValorix — <span className="text-gradient">System Architecture</span>

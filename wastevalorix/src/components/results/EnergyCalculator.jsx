@@ -10,7 +10,7 @@ const EnergyCalculator = ({ baseKwh, baseCo2, baseBiogas, isOrganic, liveQty, se
   const revenue = liveKwh * ENERGY_RATES.electricityRate;
   
   const exportReport = () => {
-    const reportText = `WasteValorix Analysis Report\nQuantity: ${liveQty} kg\nEnergy Potential: ${liveKwh.toFixed(2)} kWh\nCO2 Saved: ${liveCo2.toFixed(2)} kg\nEst. Revenue: ₹${revenue.toFixed(2)}\n— RVCE EEE DTL Project`;
+    const reportText = `WasteValorix Analysis Report\nQuantity: ${liveQty} kg\nEnergy Potential: ${liveKwh.toFixed(2)} kWh\nCO2 Saved: ${liveCo2.toFixed(2)} kg\nEst. Revenue: ₹${revenue.toFixed(2)}\n— WasteValorix Project`;
     
     if (navigator.share) {
       navigator.share({

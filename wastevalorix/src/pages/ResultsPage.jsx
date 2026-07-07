@@ -70,7 +70,7 @@ const ResultsPage = () => {
   const safeTips = Array.isArray(tips) ? tips : (typeof tips === 'string' ? [tips] : []);
 
   const handleShare = () => {
-    const text = `WasteValorix Analysis Report\nWaste: ${wasteType} | Quantity: ${quantity}kg\nEnergy: ${(quantity * kwhPerKg).toFixed(1)} kWh | CO₂ Saved: ${(quantity * co2PerKg).toFixed(1)} kg\nMethod: ${method}\n— RVCE EEE DTL Project`;
+    const text = `WasteValorix Analysis Report\nWaste: ${wasteType} | Quantity: ${quantity}kg\nEnergy: ${(quantity * kwhPerKg).toFixed(1)} kWh | CO₂ Saved: ${(quantity * co2PerKg).toFixed(1)} kg\nMethod: ${method}\n— WasteValorix Project`;
     
     if (navigator.share) {
       navigator.share({ title: 'WasteValorix Report', text }).catch(console.error);

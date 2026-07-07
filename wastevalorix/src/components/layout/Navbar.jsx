@@ -25,7 +25,7 @@ const Navbar = () => {
             Waste<span className="text-gradient">Valorix</span>
           </h1>
           <span className="ml-4 text-xs font-medium text-text-soft bg-card px-2 py-1 rounded-full border border-border">
-            RVCE EEE
+            RVCE
           </span>
         </div>
 

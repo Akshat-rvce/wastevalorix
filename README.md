@@ -21,15 +21,15 @@ Here is a visual walkthrough of the WasteValorix hybrid platform, showcasing scr
 
 | 🏠 Interactive 3D Home | 🔬 Methodology & Architecture |
 |:---:|:---:|
-| <img src="./PHOTOS/Screenshot%202026-07-05%20230445.png" width="100%" alt="3D Home Screen"> | <img src="./PHOTOS/Screenshot%202026-07-06%20015338.png" width="100%" alt="Methodology"> |
+| <img src="./PHOTOS/HOME%20PAGE.png" width="100%" alt="3D Home Screen"> | <img src="./PHOTOS/FLOW%20OF%20WEBSITE.png" width="100%" alt="Methodology"> |
 
 | 📸 Live AI Camera Scanner | 💰 Market Price Intelligence |
 |:---:|:---:|
-| <img src="./PHOTOS/Screenshot%202026-07-05%20230947.png" width="100%" alt="Live Scanner"> | <img src="./PHOTOS/Screenshot%202026-07-05%20230745.png" width="100%" alt="Pricing Dashboard"> |
+| <img src="./PHOTOS/AI%20SCANNING%20PLASTIC%20BOTTLE.png" width="100%" alt="Live Scanner"> | <img src="./PHOTOS/PRICING%20GOT%20WITH%20QUALITY.png" width="100%" alt="Pricing Dashboard"> |
 
 | ♻️ Environmental CO₂ Impact | 🏪 Waste Marketplace |
 |:---:|:---:|
-| <img src="./PHOTOS/Screenshot%202026-07-05%20230754.png" width="100%" alt="Carbon Offsets"> | <img src="./PHOTOS/Screenshot%202026-07-05%20231652.png" width="100%" alt="Marketplace"> |
+| <img src="./PHOTOS/RESULTS%20AFTER%20SCANNING%20PRODUCT.png" width="100%" alt="Carbon Offsets"> | <img src="./PHOTOS/FULL%20WAY%20TO%20USE%20WEBSITE.png" width="100%" alt="Marketplace"> |
 
 ---
 
@@ -78,48 +78,25 @@ Here is a visual walkthrough of the WasteValorix hybrid platform, showcasing scr
 
 ---
 
-## 🚀 Setting Up the Application
+## 🛠️ Quick Start
 
-Follow these steps to configure and run the WasteValorix platform locally:
+Ensure you have [Node.js](https://nodejs.org/) installed, then configure and launch the hybrid engine:
 
-### 1. Clone the repository and install dependencies
-Open a terminal in the `wastevalorix` directory and run:
 ```bash
+# Navigate to the workspace and install dependencies
+cd wastevalorix
 npm install
-```
 
-### 2. Configure Environment Secrets
-Create a `.env` file inside the `wastevalorix` directory using `.env.example` as a template:
-```bash
-# Inside wastevalorix/.env
-VITE_GEMINI_API_KEY=your_actual_gemini_key_here
-```
-> [!WARNING]
-> Do not commit the `.env` file to your Git repository. It contains sensitive keys that will be scanned and flagged by security audits.
+# Set up your environment variables
+# Copy .env.example to .env and input your Gemini API Key
+cp .env.example .env
 
-### 3. Run the Development Server
-You can launch both the React frontend and the SQLite Express backend simultaneously:
-```bash
+# Run both the React frontend (Vite) and SQLite/Express backend
 npm run dev:all
 ```
-This runs:
-- React Vite Frontend: [http://localhost:5173](http://localhost:5173)
-- Express DB Backend: [http://localhost:5000](http://localhost:5000)
 
-### 4. Build for Production
-To bundle assets for full-stack static serving:
-```bash
-npm run build
-```
-
----
-
-## 🔒 Security Best Practices
-
-WasteValorix enforces standard protection guidelines to prevent accidental credential exposures:
-1. **Ignored Environment Files:** All `.env`, `.env.local`, and related secrets files are ignored by `.gitignore` in both the root directory and child folders.
-2. **Database Isolation:** SQLite databases (`.db` files) and log dumps are gitignored to prevent tracking state histories.
-3. **No Hardcoded Tokens:** All network transactions route dynamically through Vite's compile-time environment variables (`import.meta.env`).
+- React Frontend: [http://localhost:5173](http://localhost:5173)
+- Express Backend: [http://localhost:5000](http://localhost:5000)
 
 ---
 
