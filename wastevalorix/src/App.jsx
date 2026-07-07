@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar';
 import BottomNav from './components/layout/BottomNav';
 import LoadingScreen from './components/ui/LoadingScreen';
 import QuickScanFAB from './components/ui/QuickScanFAB';
+import { preloadAndWarmupModel } from './services/tfjsPreloader';
 
 // Lazy loading pages for performance
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -32,6 +33,11 @@ const PageWrapper = ({ children }) => {
 
 function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    // Preload TFJS model in the background early
+    preloadAndWarmupModel().catch(err => console.log('TFJS Preload ignored on startup:', err));
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-primary">

@@ -1,24 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Camera, AlertCircle } from 'lucide-react';
-import * as tf from '@tensorflow/tfjs';
-import * as cocoSsd from '@tensorflow-models/coco-ssd';
-
-// Module-level caching to prevent reloading the model on every component mount
-let cachedModel = null;
-let modelLoadingPromise = null;
-
-const loadModelCached = async () => {
-  if (cachedModel) return cachedModel;
-  if (!modelLoadingPromise) {
-    modelLoadingPromise = (async () => {
-      await tf.ready();
-      // Using 'lite_mobilenet_v2' for significantly faster load and execution
-      cachedModel = await cocoSsd.load({ base: 'lite_mobilenet_v2' });
-      return cachedModel;
-    })();
-  }
-  return modelLoadingPromise;
-};
+import { preloadAndWarmupModel } from '../../services/tfjsPreloader';
 
 const LiveCameraScanner = ({ onCapture }) => {
   const videoRef = useRef(null);
@@ -33,12 +15,12 @@ const LiveCameraScanner = ({ onCapture }) => {
   const streamRef = useRef(null);
   const animationIdRef = useRef(null);
 
-  // Load TFJS model once on mount
+  // Load TFJS model once on mount (leveraging background cached preloader)
   useEffect(() => {
     let mounted = true;
     const initModel = async () => {
       try {
-        const loadedModel = await loadModelCached();
+        const loadedModel = await preloadAndWarmupModel();
         if (mounted) {
           setModel(loadedModel);
           setModelLoading(false);
@@ -103,7 +85,13 @@ const LiveCameraScanner = ({ onCapture }) => {
       }
 
       if (mounted) {
-        animationIdRef.current = requestAnimationFrame(detectFrame);
+        // Delay next inference by 100ms (~10 FPS) to drastically reduce CPU/GPU load
+        // and prevent system lag while keeping bounding boxes responsive.
+        setTimeout(() => {
+          if (mounted) {
+            animationIdRef.current = requestAnimationFrame(detectFrame);
+          }
+        }, 100);
       }
     };
 
