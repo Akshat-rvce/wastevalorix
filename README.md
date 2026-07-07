@@ -10,6 +10,12 @@
 </p>
 
 <p align="center">
+  <a href="https://wastevalorix.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/⚡%20Live%20Demo-Deploy%20on%20Render-00E676?style=for-the-badge&logo=render&logoColor=white" alt="Live Demo">
+  </a>
+</p>
+
+<p align="center">
   <b>WasteValorix</b> is a state-of-the-art waste-to-energy hybrid intelligence suite. By combining real-time <b>Computer Vision (TensorFlow.js)</b>, advanced <b>Generative AI (Gemini Flash APIs)</b>, and responsive <b>3D Scroll Physics (React Three Fiber & GSAP)</b>, WasteValorix enables communities and scrap dealers to capture, analyze, and value recyclable waste according to current market rates.
 </p>
 
